@@ -11,12 +11,13 @@ datasource db {
 }
 
 model UserSprint {
-  id        Int     @id @default(autoincrement())
-  User      User?   @relation(fields: [userId], references: [id])
-  userId    BigInt?
-  Sprint    Sprint? @relation(fields: [sprintId], references: [id])
-  sprintId  Int
-  pagesRead Int     @default(0)
+  id           Int     @id @default(autoincrement())
+  User         User?   @relation(fields: [userId], references: [id])
+  userId       BigInt?
+  Sprint       Sprint? @relation(fields: [sprintId], references: [id])
+  sprintId     Int
+  pagesInitial Int     @default(0)
+  pagesFinal   Int     @default(0)
 
   @@unique([userId, sprintId])
 }
